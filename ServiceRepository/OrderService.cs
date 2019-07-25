@@ -15,23 +15,23 @@ namespace OrdersAPI.ServiceRepository
         {
             _orderDBContext = orderDBContext;
         }
-        public async Task<List<Order>> GetOrders()
+        public async Task<List<OrderDetails>> GetOrders()
         {
-            var orders = await _orderDBContext.Order.FindAsync(order => true);
+            var orders = await _orderDBContext.OrderDetails.FindAsync(order => true);
             return orders.ToList();
         }
-        public async Task<Order> GetOrder(string orderId)
+        public async Task<OrderDetails> GetOrder(string orderId)
         {
-            var order = await _orderDBContext.Order.FindAsync<Order>(ord => ord.OrderID == orderId);
+            var order = await _orderDBContext.OrderDetails.FindAsync<OrderDetails>(ord => ord.OrderID == orderId);
             return order.FirstOrDefault();
         }
-        public void OrderCancel(string orderId, Order orderIn)
+        public void OrderCancel(string orderId, OrderDetails orderIn)
         {
-            _orderDBContext.Order.ReplaceOne(ord => ord.OrderID == orderId, orderIn);
+            _orderDBContext.OrderDetails.ReplaceOne(ord => ord.OrderID == orderId, orderIn);
         }
-        public Order Create(Order order)
+        public OrderDetails Create(OrderDetails order)
         {
-            _orderDBContext.Order.InsertOne(order);
+            _orderDBContext.OrderDetails.InsertOne(order);
             return order;
         }
     }

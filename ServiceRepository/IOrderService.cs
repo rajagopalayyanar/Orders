@@ -8,7 +8,7 @@ namespace OrdersAPI.ServiceRepository
 {
     public interface IOrderService
     {
-        Task<List<Order>> GetOrders();
-        Task<Order> GetOrder(string name);
+        Task<List<OrderDetails>> GetOrders();
+        Task<OrderDetails> GetOrder(string name);
     }
 }

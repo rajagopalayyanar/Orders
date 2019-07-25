@@ -23,7 +23,7 @@ namespace OrdersAPI.Controllers
         [HttpGet]
         //[HttpGet(Name = "GetAllRestaurant")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
-        public async Task<ActionResult<List<Order>>> GetOrders()
+        public async Task<ActionResult<List<OrderDetails>>> GetOrders()
         {
             var orders = await _orderService.GetOrders();
             if (orders.Count == 0)
@@ -37,7 +37,7 @@ namespace OrdersAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<Order>> GetOrderAsync([FromRoute] string orderId)
+        public async Task<ActionResult<OrderDetails>> GetOrderAsync([FromRoute] string orderId)
         {
             var order = await _orderService.GetOrder(orderId);
 
@@ -55,11 +55,8 @@ namespace OrdersAPI.Controllers
         [HttpPost(Name = "CreateOrder")]
         [ProducesResponseType((int)HttpStatusCode.Created)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public ActionResult<Order> CreateOrderAsync(Order order)
+        public ActionResult<OrderDetails> CreateOrderAsync(OrderDetails order)
         {
-            //_restaurantDBContext.Restaurant.InsertOne(restaurant);
-
-            //return CreatedAtRoute("GetRestaurants", new { id = restaurant.RestaurentId.ToString() }, restaurant);
             if (ModelState.IsValid)
             {
                 _orderService.Create(order);
@@ -72,7 +69,7 @@ namespace OrdersAPI.Controllers
         }
 
         [HttpPut]
-        public IActionResult UpdateOrder(string orderId, Order orderIn)
+        public IActionResult UpdateOrder(string orderId, OrderDetails orderIn)
         {
             var order = _orderService.GetOrder(orderId);
 

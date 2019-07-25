@@ -19,6 +19,13 @@ namespace OrdersAPI.Infrastructure
             }
         }
 
+        public IMongoCollection<OrderDetails> OrderDetails
+        {
+            get
+            {
+                return this.database.GetCollection<OrderDetails>("Order");
+            }
+        }
         public IMongoCollection<Order> Order
         {
             get
