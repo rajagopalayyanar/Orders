@@ -6,15 +6,17 @@ using MongoDB.Driver;
 using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson.Serialization.IdGenerators;
+using MongoDB.Bson;
 
 namespace OrdersAPI.Models
 {
     public class OrderDetails
     {
-        [BsonId(IdGenerator = typeof(StringObjectIdGenerator))]
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string OrderID { get; set; }
         public string EmailID { get; set; }
-        public DateTime OrderDateTime { get; set; }
+        public string OrderDateTime { get; set; }
         public string RestaurantName { get; set; }
         public string OrderStatus { get; set; }
         public string DeliveryAddress { get; set; }

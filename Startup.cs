@@ -41,6 +41,7 @@ namespace OrdersAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors();
             app.UseMvc();
         }
     }

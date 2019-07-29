@@ -23,14 +23,14 @@ namespace OrdersAPI.Infrastructure
         {
             get
             {
-                return this.database.GetCollection<OrderDetails>("Order");
+                return this.database.GetCollection<OrderDetails>("order");
             }
         }
         public IMongoCollection<Order> Order
         {
             get
             {
-                return this.database.GetCollection<Order>("Order");
+                return this.database.GetCollection<Order>("order");
             }
         }
     }

@@ -11,3 +11,4 @@ E:\FSDTraining\DotnetCore\CaseStudy\OrdersAPI\OrdersAPI\obj\Debug\netcoreapp2.2\
 E:\FSDTraining\DotnetCore\CaseStudy\OrdersAPI\OrdersAPI\bin\Debug\netcoreapp2.2\OrdersAPI.pdb
 E:\FSDTraining\DotnetCore\CaseStudy\OrdersAPI\OrdersAPI\obj\Debug\netcoreapp2.2\OrdersAPI.dll
 E:\FSDTraining\DotnetCore\CaseStudy\OrdersAPI\OrdersAPI\obj\Debug\netcoreapp2.2\OrdersAPI.pdb
+E:\FSDTraining\DotnetCore\CaseStudy\OrdersAPI\OrdersAPI\obj\Debug\netcoreapp2.2\OrdersAPI.csprojAssemblyReference.cache
