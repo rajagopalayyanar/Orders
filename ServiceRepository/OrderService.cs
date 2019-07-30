@@ -22,12 +22,12 @@ namespace OrdersAPI.ServiceRepository
         }
         public async Task<OrderDetails> GetOrder(string orderId)
         {
-            var order = await _orderDBContext.OrderDetails.FindAsync<OrderDetails>(ord => ord.OrderID == orderId);
+            var order = await _orderDBContext.OrderDetails.FindAsync<OrderDetails>(ord => ord.id == orderId);
             return order.FirstOrDefault();
         }
         public void OrderCancel(string orderId, OrderDetails orderIn)
         {
-            _orderDBContext.OrderDetails.ReplaceOne(ord => ord.OrderID == orderId, orderIn);
+            _orderDBContext.OrderDetails.ReplaceOne(ord => ord.id == orderId, orderIn);
         }
         public OrderDetails Create(OrderDetails order)
         {

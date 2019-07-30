@@ -28,7 +28,16 @@ namespace OrdersAPI
         {
             services.AddScoped<OrderService>();
             services.Configure<OrderDatabaseSettings>(Configuration.GetSection("OrderDatabaseSettings"));
-
+            services.AddCors(c =>
+            {
+                c.AddDefaultPolicy(builder =>
+                {
+                    builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                });
+            }
+            );
             services.AddScoped<OrderDBContext>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

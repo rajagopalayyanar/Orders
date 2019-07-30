@@ -14,7 +14,7 @@ namespace OrdersAPI.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string OrderID { get; set; }
+        public string id { get; set; }
         public string EmailID { get; set; }
         public string OrderDateTime { get; set; }
         public string RestaurantName { get; set; }

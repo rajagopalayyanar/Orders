@@ -37,9 +37,10 @@ namespace OrdersAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<OrderDetails>> GetOrderAsync([FromRoute] string orderId)
+        public async Task<ActionResult<OrderDetails>> GetOrderAsync([FromRoute] string id)
         {
-            var order = await _orderService.GetOrder(orderId);
+
+            var order = await _orderService.GetOrder(id);
 
             if (order != null)
             {
@@ -60,7 +61,7 @@ namespace OrdersAPI.Controllers
             if (ModelState.IsValid)
             {
                 _orderService.Create(order);
-                return CreatedAtRoute("GetOrders", new { id = order.OrderID.ToString() }, order);
+                return CreatedAtRoute("GetOrders", new { id = order.id.ToString() }, order);
             }
             else
             {
